@@ -1,0 +1,2 @@
+class InvalidPesel(Exception):
+    pass

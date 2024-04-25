@@ -1,0 +1,21 @@
+version: '3'
+
+services:
+  api:
+    container_name: contelizer_api
+    build: 
+      context: ./src/backend
+    volumes:
+      - ./src/backend/:/api
+    ports:
+      - "8000:8000"
+
+  frontend:
+    container_name: contelizer_frontend
+    build:
+      context: ./src/frontend
+    ports:
+      - "3000:3000"
+    volumes:
+      - ./src/frontend/:/frontend
+      - /frontend/node_modules
