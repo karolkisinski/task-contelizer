@@ -7,10 +7,13 @@ class Pesel():
     @classmethod
     def validate(cls, pesel):
         weights = [9, 7, 3, 1, 9, 7, 3, 1, 9, 7]
-        checksum = sum(int(pesel[i]) * weights[i] for i in range(10)) % 10
-        if checksum != int(pesel[10]):
+        try:
+            checksum = sum(int(pesel[i]) * weights[i] for i in range(10)) % 10
+            if checksum != int(pesel[10]):
+                return False
+            return True
+        except ValueError:
             return False
-        return True
 
     @classmethod
     def get_birth_date(cls, pesel):
