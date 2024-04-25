@@ -2,7 +2,7 @@ version: '3'
 
 services:
   api:
-    container_name: contelizer_api2
+    container_name: contelizer_api
     build: 
       context: ./src/backend
     command: >
@@ -17,7 +17,7 @@ services:
       - "8000:8000"
 
   frontend:
-    container_name: contelizer_frontend2
+    container_name: contelizer_frontend
     build:
       context: ./src/frontend
     ports:
