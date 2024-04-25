@@ -2,16 +2,22 @@ version: '3'
 
 services:
   api:
-    container_name: contelizer_api
+    container_name: contelizer_api2
     build: 
       context: ./src/backend
+    command: >
+      sh -c "
+              python manage.py makemigrations &&
+              python manage.py migrate &&
+              python manage.py runserver 0.0.0.0:8000
+      "
     volumes:
       - ./src/backend/:/api
     ports:
       - "8000:8000"
 
   frontend:
-    container_name: contelizer_frontend
+    container_name: contelizer_frontend2
     build:
       context: ./src/frontend
     ports:
